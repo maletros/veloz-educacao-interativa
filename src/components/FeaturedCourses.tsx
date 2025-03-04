@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ArrowRight, Code, Lightbulb, LineChart, Palette } from 'lucide-react';
 import CourseCard from './CourseCard';
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 
 // Mock data
 const categories = [
@@ -156,8 +157,14 @@ const FeaturedCourses = () => {
         </div>
         
         <div className="text-center">
-          <Button variant="outline" className="border-veloz-blue text-veloz-blue hover:bg-veloz-blue/5">
-            Ver todos os cursos <ArrowRight className="ml-2 w-4 h-4" />
+          <Button 
+            variant="outline" 
+            className="border-veloz-blue text-veloz-blue hover:bg-veloz-blue/5"
+            asChild
+          >
+            <Link to="/courses/all">
+              Ver todos os cursos <ArrowRight className="ml-2 w-4 h-4" />
+            </Link>
           </Button>
         </div>
       </div>

@@ -1,8 +1,8 @@
-
 import React from 'react';
 import { ArrowRight, Code, GitBranch, Lightbulb, Palette, Target } from 'lucide-react';
 import PathCard from './PathCard';
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 
 // Mock data
 const paths = [
@@ -70,8 +70,10 @@ const LearningPaths = () => {
               Nossas trilhas guiam você desde o básico até o avançado, com uma sequência de cursos planejada para maximizar seu aprendizado.
             </p>
           </div>
-          <Button variant="outline" className="border-veloz-blue text-veloz-blue hover:bg-veloz-blue/5">
-            Ver todas as trilhas <ArrowRight className="ml-2 w-4 h-4" />
+          <Button variant="outline" className="border-veloz-blue text-veloz-blue hover:bg-veloz-blue/5" asChild>
+            <Link to="/learning-paths">
+              Ver todas as trilhas <ArrowRight className="ml-2 w-4 h-4" />
+            </Link>
           </Button>
         </div>
         
