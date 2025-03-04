@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { ArrowRight, Code, Lightbulb, LineChart, Palette } from 'lucide-react';
 import CourseCard from './CourseCard';
@@ -139,7 +138,7 @@ const FeaturedCourses = () => {
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
-          {filteredCourses.map((course) => (
+          {filteredCourses.map((course, index) => (
             <CourseCard
               key={course.id}
               title={course.title}
@@ -151,8 +150,7 @@ const FeaturedCourses = () => {
               students={course.students}
               modules={course.modules}
               featured={course.featured}
-              className="animate-scale-in"
-              style={{ animationDelay: `${(course.id % 3) * 0.1}s` }}
+              className={`animate-scale-in delay-[${index * 100}ms]`}
             />
           ))}
         </div>
