@@ -37,6 +37,12 @@ const categoriesInfo = {
     description: 'Explore técnicas de análise de dados, machine learning e visualização para extrair insights valiosos.',
     icon: LineChart,
     color: 'from-cyan-500 to-blue-500'
+  },
+  'all': {
+    name: 'Todos os Cursos',
+    description: 'Explore nossa biblioteca completa de cursos em diferentes áreas de conhecimento.',
+    icon: Code,
+    color: 'from-gray-600 to-gray-800'
   }
 };
 
@@ -210,9 +216,16 @@ const CourseCategoryPage = () => {
     // Simulando uma chamada à API
     setIsLoading(true);
     setTimeout(() => {
-      const filteredCourses = categorySlug 
-        ? allCourses.filter(course => course.categoryId === categorySlug)
-        : [];
+      let filteredCourses;
+      
+      if (categorySlug === 'all') {
+        // Mostrar todos os cursos quando a categoria é 'all'
+        filteredCourses = allCourses;
+      } else {
+        // Filtrar cursos pela categoria específica
+        filteredCourses = allCourses.filter(course => course.categoryId === categorySlug);
+      }
+      
       setCourses(filteredCourses);
       setIsLoading(false);
     }, 500);
@@ -252,7 +265,7 @@ const CourseCategoryPage = () => {
             <div className="bg-white/20 p-3 rounded-lg backdrop-blur-sm">
               <CategoryIcon className="w-8 h-8" />
             </div>
-            <h1 className="text-3xl md:text-4xl font-bold">Cursos de {categoryInfo.name}</h1>
+            <h1 className="text-3xl md:text-4xl font-bold">{categoryInfo.name}</h1>
           </div>
           
           <p className="text-xl text-white/80 max-w-2xl mb-8">
