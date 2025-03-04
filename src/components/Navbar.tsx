@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown, Search, User } from 'lucide-react';
 import Logo from '../assets/logo';
@@ -25,7 +24,7 @@ const Navbar = () => {
   const navLinks = [
     { name: 'Início', href: '/' },
     { name: 'Cursos', href: '#', hasSubmenu: true },
-    { name: 'Trilhas', href: '#' },
+    { name: 'Trilhas', href: '/learning-paths' },
     { name: 'Leaderboard', href: '#' },
   ];
 
@@ -45,14 +44,12 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo */}
           <div className="flex-shrink-0">
             <Link to="/">
               <Logo />
             </Link>
           </div>
 
-          {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
               <div key={link.name} className="relative group">
@@ -86,7 +83,6 @@ const Navbar = () => {
             ))}
           </nav>
 
-          {/* Search and User actions */}
           <div className="hidden md:flex items-center space-x-4">
             <button type="button" className="p-2 rounded-full text-veloz-dark hover:text-veloz-blue transition-colors">
               <Search className="h-5 w-5" />
@@ -99,7 +95,6 @@ const Navbar = () => {
             </button>
           </div>
 
-          {/* Mobile menu button */}
           <div className="flex md:hidden">
             <button
               type="button"
@@ -112,7 +107,6 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile menu, show/hide based on menu state */}
       {isMobileMenuOpen && (
         <div className="md:hidden bg-white shadow-lg animate-slide-up">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">

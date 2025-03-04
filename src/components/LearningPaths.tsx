@@ -85,8 +85,7 @@ const LearningPaths = () => {
               image={path.image}
               courseCount={path.courseCount}
               duration={path.duration}
-              className="animate-fade-in"
-              style={{ animationDelay: `${index * 0.2}s` }}
+              className={`animate-fade-in`}
             />
           ))}
         </div>
