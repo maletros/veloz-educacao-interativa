@@ -28,11 +28,20 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     localStorage.setItem('theme', theme);
     
     // Update document class for dark mode
+    const root = window.document.documentElement;
+    
     if (theme === 'dark') {
-      document.documentElement.classList.add('dark');
+      root.classList.add('dark');
     } else {
-      document.documentElement.classList.remove('dark');
+      root.classList.remove('dark');
     }
+
+    // Add transition after initial load to avoid flash when theme changes
+    const timeout = setTimeout(() => {
+      root.style.transition = 'background-color 0.3s ease, color 0.3s ease';
+    }, 100);
+
+    return () => clearTimeout(timeout);
   }, [theme]);
 
   const toggleTheme = () => {

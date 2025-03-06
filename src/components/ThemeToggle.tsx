@@ -14,17 +14,22 @@ const ThemeToggle: React.FC<ThemeToggleProps> = ({ className }) => {
 
   return (
     <Button
-      variant="ghost"
+      variant="outline"
       size="icon"
       onClick={toggleTheme}
       aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
-      className={cn("rounded-full", className)}
+      className={cn(
+        "rounded-full",
+        theme === 'dark' ? 'border-veloz-gray/30 bg-veloz-dark text-veloz-light hover:bg-veloz-dark/80 hover:text-white' : 'text-veloz-dark hover:bg-veloz-light',
+        className
+      )}
     >
       {theme === 'light' ? (
-        <Moon className="h-5 w-5" />
+        <Moon className="h-[1.2rem] w-[1.2rem] rotate-90 transition-all dark:rotate-0" />
       ) : (
-        <Sun className="h-5 w-5" />
+        <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 transition-all dark:-rotate-90" />
       )}
+      <span className="sr-only">Toggle theme</span>
     </Button>
   );
 };
