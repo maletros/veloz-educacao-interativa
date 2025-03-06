@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown, Search, User } from 'lucide-react';
 import Logo from '../assets/logo';
@@ -28,7 +27,7 @@ const Navbar = () => {
     { name: 'Início', href: '/' },
     { name: 'Cursos', href: '#', hasSubmenu: true },
     { name: 'Trilhas', href: '/learning-paths' },
-    { name: 'Leaderboard', href: '#' },
+    { name: 'Leaderboard', href: '/leaderboard' },
   ];
 
   const courseCategories = [
