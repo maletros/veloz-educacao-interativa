@@ -9,6 +9,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import CourseCategoryPage from "./pages/CourseCategoryPage";
 import LearningPathsPage from "./pages/LearningPathsPage";
+import AuthPage from "./pages/AuthPage";
 
 const queryClient = new QueryClient();
 
@@ -23,6 +24,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/courses/:categorySlug" element={<CourseCategoryPage />} />
             <Route path="/learning-paths" element={<LearningPathsPage />} />
+            <Route path="/auth" element={<AuthPage />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

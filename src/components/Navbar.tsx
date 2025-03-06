@@ -3,12 +3,13 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown, Search, User } from 'lucide-react';
 import Logo from '../assets/logo';
 import { Button } from '@/components/ui/button';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import ThemeToggle from './ThemeToggle';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -37,6 +38,11 @@ const Navbar = () => {
     { name: 'Marketing Digital', slug: 'marketing' },
     { name: 'Data Science', slug: 'data' },
   ];
+
+  const handleUserIconClick = () => {
+    navigate('/auth');
+    setIsMobileMenuOpen(false);
+  };
 
   return (
     <header
@@ -95,7 +101,11 @@ const Navbar = () => {
             <Button className="bg-veloz-blue hover:bg-veloz-blue/90 text-white">
               Comece Agora
             </Button>
-            <button type="button" className="p-2 rounded-full text-veloz-dark dark:text-white hover:text-veloz-blue dark:hover:text-veloz-blue transition-colors">
+            <button 
+              type="button" 
+              className="p-2 rounded-full text-veloz-dark dark:text-white hover:text-veloz-blue dark:hover:text-veloz-blue transition-colors"
+              onClick={handleUserIconClick}
+            >
               <User className="h-5 w-5" />
             </button>
           </div>
@@ -151,7 +161,11 @@ const Navbar = () => {
               <button type="button" className="p-2 rounded-full text-veloz-dark dark:text-white hover:text-veloz-blue dark:hover:text-veloz-blue transition-colors">
                 <Search className="h-5 w-5" />
               </button>
-              <button type="button" className="p-2 rounded-full text-veloz-dark dark:text-white hover:text-veloz-blue dark:hover:text-veloz-blue transition-colors">
+              <button 
+                type="button" 
+                className="p-2 rounded-full text-veloz-dark dark:text-white hover:text-veloz-blue dark:hover:text-veloz-blue transition-colors"
+                onClick={handleUserIconClick}
+              >
                 <User className="h-5 w-5" />
               </button>
             </div>
