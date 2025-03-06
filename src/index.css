@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
@@ -157,5 +158,34 @@
   
   .dark .hover\:bg-veloz-blue\/5:hover {
     @apply hover:bg-veloz-blue/20;
+  }
+  
+  /* Improved dark mode text contrast */
+  .dark h1, 
+  .dark h2, 
+  .dark h3, 
+  .dark h4, 
+  .dark h5, 
+  .dark h6 {
+    @apply text-white;
+  }
+  
+  .dark .text-veloz-gray {
+    @apply text-gray-300;
+  }
+  
+  /* Fix for navbar in dark mode */
+  .dark .transparent-header {
+    @apply bg-veloz-dark/95 backdrop-blur-md;
+  }
+  
+  /* Fix for highlighted text in leaderboard */
+  .dark .leaderboard-highlight {
+    @apply bg-veloz-blue/30 text-white;
+  }
+  
+  /* Fix for rating stars in dark mode */
+  .dark .rating-text {
+    @apply text-white;
   }
 }
