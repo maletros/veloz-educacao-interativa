@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown, Search, User } from 'lucide-react';
 import Logo from '../assets/logo';
@@ -25,17 +26,9 @@ const Navbar = () => {
 
   const navLinks = [
     { name: 'Início', href: '/' },
-    { name: 'Cursos', href: '#', hasSubmenu: true },
+    { name: 'Cursos', href: '/courses/all' },
     { name: 'Trilhas', href: '/learning-paths' },
     { name: 'Leaderboard', href: '/leaderboard' },
-  ];
-
-  const courseCategories = [
-    { name: 'Programação', slug: 'programming' },
-    { name: 'Empreendedorismo', slug: 'entrepreneurship' },
-    { name: 'Design', slug: 'design' },
-    { name: 'Marketing Digital', slug: 'marketing' },
-    { name: 'Data Science', slug: 'data' },
   ];
 
   const handleUserIconClick = () => {
@@ -62,32 +55,12 @@ const Navbar = () => {
           <nav className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
               <div key={link.name} className="relative group">
-                {link.hasSubmenu ? (
-                  <div className="text-veloz-dark dark:text-white hover:text-veloz-blue dark:hover:text-veloz-blue flex items-center font-medium transition-colors cursor-pointer">
-                    {link.name}
-                    <ChevronDown className="ml-1 h-4 w-4 transition-transform group-hover:rotate-180" />
-                  </div>
-                ) : (
-                  <Link
-                    to={link.href}
-                    className="text-veloz-dark dark:text-white hover:text-veloz-blue dark:hover:text-veloz-blue flex items-center font-medium transition-colors"
-                  >
-                    {link.name}
-                  </Link>
-                )}
-                {link.hasSubmenu && (
-                  <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white dark:bg-veloz-dark ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
-                    {courseCategories.map((category) => (
-                      <Link 
-                        key={category.slug}
-                        to={`/courses/${category.slug}`} 
-                        className="block px-4 py-2 text-sm text-veloz-dark dark:text-white hover:bg-veloz-light dark:hover:bg-veloz-dark/50"
-                      >
-                        {category.name}
-                      </Link>
-                    ))}
-                  </div>
-                )}
+                <Link
+                  to={link.href}
+                  className="text-veloz-dark dark:text-white hover:text-veloz-blue dark:hover:text-veloz-blue flex items-center font-medium transition-colors"
+                >
+                  {link.name}
+                </Link>
               </div>
             ))}
           </nav>
@@ -127,33 +100,13 @@ const Navbar = () => {
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             {navLinks.map((link) => (
               <React.Fragment key={link.name}>
-                {link.hasSubmenu ? (
-                  <>
-                    <div className="block px-3 py-2 rounded-md text-base font-medium text-veloz-dark dark:text-white">
-                      {link.name}
-                    </div>
-                    <div className="pl-4">
-                      {courseCategories.map((category) => (
-                        <Link
-                          key={category.slug}
-                          to={`/courses/${category.slug}`}
-                          className="block px-3 py-2 text-sm text-veloz-dark dark:text-white hover:bg-veloz-light dark:hover:bg-veloz-dark/50"
-                          onClick={() => setIsMobileMenuOpen(false)}
-                        >
-                          {category.name}
-                        </Link>
-                      ))}
-                    </div>
-                  </>
-                ) : (
-                  <Link
-                    to={link.href}
-                    className="block px-3 py-2 rounded-md text-base font-medium text-veloz-dark dark:text-white hover:bg-veloz-light dark:hover:bg-veloz-dark/50 transition-colors"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {link.name}
-                  </Link>
-                )}
+                <Link
+                  to={link.href}
+                  className="block px-3 py-2 rounded-md text-base font-medium text-veloz-dark dark:text-white hover:bg-veloz-light dark:hover:bg-veloz-dark/50 transition-colors"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {link.name}
+                </Link>
               </React.Fragment>
             ))}
             <div className="flex items-center justify-between px-3 py-2">
